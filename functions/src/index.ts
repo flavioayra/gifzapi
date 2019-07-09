@@ -47,6 +47,7 @@ export const fav = functions.https.onRequest(async (request, response) => {
     const db = admin.firestore();
 
     db.collection('favs').add({
+        date: new Date().getTime(),
         url: url
     }).then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -63,7 +64,7 @@ export const favs = functions.https.onRequest(async (request, response) => {
     const imgs: Array<Gif> = []
     const db = admin.firestore();
 
-    db.collection("favs").get().then((querySnapshot) => {
+    db.collection("favs").orderBy("date").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             const d = doc.data();
             d && d.url && imgs.push(new Gif(d.url, doc.id));
