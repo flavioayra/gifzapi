@@ -19,7 +19,7 @@
     "giphy-api": "^2.0.1",
     "request": "^2.88.0",
     "tenorjs": "^1.0.7",
-    "webpack": "^4.35.2"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "tslint": "^5.12.0",
